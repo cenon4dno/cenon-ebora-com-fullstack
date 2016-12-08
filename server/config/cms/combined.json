@@ -1,0 +1,18 @@
+{
+	"DEMO_MESSAGE": {
+		"tag": "DEMO_MESSAGE",
+		"message": "Development Tools"
+	},
+	"DEMO_MESSAGE2": {
+		"tag": "DEMO_MESSAGE2",
+		"message": "Development Tools2"
+	},
+	"DEMO_MESSAGE3": {
+		"tag": "DEMO_MESSAGE3",
+		"message": "Development Tools"
+	},
+	"DEMO_MESSAGE4": {
+		"tag": "DEMO_MESSAGE4",
+		"message": "Development Tools2"
+	}
+}
