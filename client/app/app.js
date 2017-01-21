@@ -22,19 +22,22 @@ import account from './account';
 import admin from './admin';
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
+import cms from '../components/cms/cms.component';
 import main from './main/main.component';
 import home from './home/home.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
+import cmsService from '../components/cms/cms.service';
 
 import './app.less';
 
 angular.module('cenonEboraComFullstackApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io',
-    uiRouter, uiBootstrap, _Auth, account, admin, navbar, footer, home, main, constants, socket, util
+    uiRouter, uiBootstrap, _Auth, account, admin, navbar, footer, home, main, constants, socket, util,
+    cms, cmsService
   ])
   .config(routeConfig)
-  .run(function($rootScope, $location, Auth) {
+  .run(function($rootScope, $location, $http, Auth, CmsSrv) {
     'ngInject';
     // Redirect to login if route requires auth and you're not logged in
 
@@ -45,6 +48,12 @@ angular.module('cenonEboraComFullstackApp', [ngCookies, ngResource, ngSanitize, 
         }
       });
     });
+
+    $http.get('/api/cms')
+      .then(response => {
+        console.log('cms response data', response);
+        CmsSrv.setCmsData(response.data);
+      });
   });
 
 angular.element(document)

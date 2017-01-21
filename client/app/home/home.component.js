@@ -5,10 +5,11 @@ import routing from './home.routes';
 export class HomeController {
 
   /*@ngInject*/
-  constructor($http, $scope, socket) {
+  constructor($http, $scope, socket, CmsSrv) {
     console.log('here 1');
     this.$http = $http;
     this.socket = socket;
+	this.cms = CmsSrv.getCmsData;
 
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('thing');
